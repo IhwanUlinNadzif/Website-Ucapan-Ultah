@@ -1,0 +1,135 @@
+/* Reset dan base styles */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    animation: none !important;
+    transition: none !important;
+}
+
+body {
+    font-family: 'Segoe UI', Arial, sans-serif;
+    background: linear-gradient(120deg, #f8fffa 0%, #ffe0f7 100%);
+    margin: 0;
+    padding: 0;
+    color: #222;
+    line-height: 1.6;
+    min-height: 100vh;
+}
+
+/* Skip link untuk aksesibilitas */
+.skip-link {
+    position: absolute;
+    top: -40px;
+    left: 0;
+    background: #000;
+    color: white;
+    padding: 8px 16px;
+    text-decoration: none;
+    border-radius: 0 0 4px 0;
+    z-index: 1000;
+    font-weight: bold;
+}
+
+.skip-link:focus {
+    top: 0;
+}
+
+/* Header styles */
+header {
+    background: linear-gradient(90deg, #81C784 60%, #fffbe7 100%);
+    color: #222;
+    text-align: center;
+    padding: 32px 0 16px 0;
+    border-radius: 0 0 24px 24px;
+}
+
+.hero h1 {
+    font-size: 2.2em;
+    font-weight: 700;
+    margin: 0 0 8px 0;
+    color: #4CAF50;
+}
+
+.hero .subtitle {
+    font-size: 1.1em;
+    color: #555;
+}
+
+/* Main content styles */
+section#greeting {
+    max-width: 420px;
+    margin: 40px auto;
+    background: linear-gradient(135deg, #fffbe7 60%, #e0f7fa 100%);
+    border-radius: 14px;
+    box-shadow: 0 4px 24px rgba(76,175,80,0.10);
+    padding: 32px 18px 28px 18px;
+    text-align: center;
+    border: 2px solid #81C784;
+}
+
+/* Login button styles */
+.login-btn {
+    display: inline-block;
+    background: linear-gradient(90deg, #4CAF50 60%, #81C784 100%);
+    color: white;
+    padding: 12px 32px;
+    border-radius: 25px;
+    text-decoration: none;
+    font-weight: bold;
+    margin: 16px 0;
+    box-shadow: 0 2px 8px rgba(76,175,80,0.15);
+}
+
+.login-btn:hover {
+    background: linear-gradient(90deg, #388E3C 60%, #4CAF50 100%);
+}
+
+/* Card ucapan styles */
+.card-ucapan {
+    background: white;
+    padding: 16px;
+    border-radius: 10px;
+    margin: 20px 0;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.1);
+    font-style: italic;
+    color: #388E3C;
+    border-left: 4px solid #4CAF50;
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    padding: 20px;
+    color: #666;
+    font-size: 0.9em;
+    margin-top: 40px;
+}
+
+/* Responsive design */
+@media (max-width: 600px) {
+    section#greeting {
+        width: 95%;
+        padding: 20px 15px;
+        margin: 20px auto;
+    }
+    
+    header {
+        padding: 18px 0 8px 0;
+    }
+    
+    .hero h1 {
+        font-size: 1.8em;
+    }
+}
+
+@media (max-width: 400px) {
+    .hero h1 {
+        font-size: 1.5em;
+    }
+    
+    .login-btn {
+        padding: 10px 20px;
+        font-size: 0.9em;
+    }
+}

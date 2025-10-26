@@ -1,0 +1,788 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ucapan Ulang Tahun Spesial - Zona Aulia</title>
+    <meta name="description" content="Ucapan spesial ulang tahun untuk Zona Aulia Nafaza dengan video dan foto kejutan">
+    <link rel="stylesheet" href="../styles/main.css">
+    <link rel="stylesheet" href="../styles/animations.css">
+    <link rel="stylesheet" href="../styles/greeting-extra.css">
+    <style>
+        /* Additional styles untuk teks yang lebih menarik */
+        .greeting-header {
+            text-align: center;
+            margin-bottom: 30px;
+            padding: 20px;
+            background: linear-gradient(135deg, rgba(255,255,255,0.95) 0%, rgba(255,251,231,0.95) 100%);
+            border-radius: 20px;
+            box-shadow: 0 8px 32px rgba(76,175,80,0.15);
+            border: 2px solid transparent;
+            background-clip: padding-box;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .greeting-header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            border-radius: 20px;
+            padding: 3px;
+            background: linear-gradient(45deg, #ffd54f, #81c784, #4CAF50, #E1BEE7);
+            -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+            mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+            -webkit-mask-composite: xor;
+            mask-composite: exclude;
+            pointer-events: none;
+        }
+
+        .main-title {
+            font-size: 3.5em;
+            font-weight: 800;
+            background: linear-gradient(45deg, #4CAF50, #81C784, #FFD54F, #E1BEE7);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 15px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+            letter-spacing: 1px;
+            line-height: 1.2;
+        }
+
+        .greeting-lead {
+            font-size: 1.4em;
+            color: #2E7D32;
+            font-weight: 600;
+            margin-bottom: 0;
+            padding: 15px 25px;
+            background: rgba(255,255,255,0.9);
+            border-radius: 15px;
+            display: inline-block;
+            box-shadow: 0 4px 15px rgba(76,175,80,0.1);
+            border-left: 4px solid #4CAF50;
+            border-right: 4px solid #81C784;
+            line-height: 1.5;
+            max-width: 80%;
+            margin: 0 auto;
+        }
+
+        .decoration-elements {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 20px;
+            flex-wrap: wrap;
+        }
+
+        .decoration-icon {
+            font-size: 2em;
+            opacity: 0.8;
+            transition: transform 0.3s ease;
+        }
+
+        .decoration-icon:hover {
+            transform: scale(1.2);
+            opacity: 1;
+        }
+
+        /* Styles untuk romantic message yang baru */
+        .romantic-message-container {
+            text-align: center;
+            margin: 40px 0;
+            padding: 0 20px;
+        }
+
+        .romantic-message {
+            font-size: 1.3em;
+            line-height: 1.8;
+            color: #5D4037;
+            background: linear-gradient(135deg, #FFF8E1 0%, #F3E5F5 100%);
+            padding: 30px 40px;
+            border-radius: 25px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            border: 2px solid transparent;
+            background-clip: padding-box;
+            position: relative;
+            max-width: 800px;
+            margin: 0 auto;
+            display: inline-block;
+        }
+
+        .romantic-message::before {
+            content: '';
+            position: absolute;
+            top: -2px;
+            left: -2px;
+            right: -2px;
+            bottom: -2px;
+            border-radius: 25px;
+            background: linear-gradient(45deg, #E1BEE7, #81C784, #FFD54F, #4CAF50);
+            z-index: -1;
+            opacity: 0.7;
+        }
+
+        .romantic-message::after {
+            content: '';
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            right: 10px;
+            bottom: 10px;
+            border: 1px solid rgba(76,175,80,0.2);
+            border-radius: 20px;
+            pointer-events: none;
+        }
+
+        .message-line {
+            display: block;
+            margin-bottom: 12px;
+            position: relative;
+            padding: 5px 0;
+        }
+
+        .message-line:last-child {
+            margin-bottom: 0;
+        }
+
+        .message-line::before {
+            content: '❀';
+            position: absolute;
+            left: -25px;
+            color: #E1BEE7;
+            font-size: 0.8em;
+        }
+
+        .heart-decoration {
+            display: inline-block;
+            margin: 0 8px;
+            animation: none;
+            font-size: 1.1em;
+        }
+
+        .message-quote {
+            font-style: italic;
+            color: #7B1FA2;
+            font-weight: 500;
+            margin-top: 20px;
+            padding-top: 15px;
+            border-top: 1px dashed #E1BEE7;
+            font-size: 1.1em;
+        }
+
+        .floral-border {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 15px;
+            margin: 20px 0;
+            opacity: 0.6;
+        }
+
+        .floral-icon {
+            font-size: 1.2em;
+            color: #81C784;
+        }
+
+        /* Button Styles */
+        .special-message-btn {
+            background: linear-gradient(90deg, #FF6B6B 60%, #FFA8A8 100%);
+            color: white;
+            padding: 14px 28px;
+            border: none;
+            border-radius: 25px;
+            font-weight: 600;
+            font-size: 1em;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            margin: 8px 0;
+            box-shadow: 0 2px 8px rgba(255,107,107,0.15);
+            display: block;
+            width: 100%;
+            letter-spacing: 0.5px;
+        }
+
+        .special-message-btn:hover {
+            background: linear-gradient(90deg, #FF5252 60%, #FF8A8A 100%);
+            transform: translateY(-1px);
+            box-shadow: 0 4px 12px rgba(255,107,107,0.25);
+        }
+
+        .special-gallery-btn {
+            background: linear-gradient(90deg, #9C27B0 60%, #E1BEE7 100%);
+            color: white;
+            padding: 14px 28px;
+            border: none;
+            border-radius: 25px;
+            font-weight: 600;
+            font-size: 1em;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            margin: 8px 0;
+            box-shadow: 0 2px 8px rgba(156,39,176,0.15);
+            display: block;
+            width: 100%;
+            letter-spacing: 0.5px;
+        }
+
+        .special-gallery-btn:hover {
+            background: linear-gradient(90deg, #7B1FA2 60%, #CE93D8 100%);
+            transform: translateY(-1px);
+            box-shadow: 0 4px 12px rgba(156,39,176,0.25);
+        }
+
+        /* Celebration particles style */
+        .celebration-particle {
+            position: fixed;
+            font-size: 24px;
+            pointer-events: none;
+            z-index: 10000;
+            animation: celebration-float 3s ease-in forwards;
+        }
+
+        @keyframes celebration-float {
+            0% {
+                transform: translateY(0) rotate(0deg);
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(-100vh) rotate(360deg);
+                opacity: 0;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .main-title {
+                font-size: 2.5em;
+            }
+            
+            .greeting-lead {
+                font-size: 1.1em;
+                padding: 12px 20px;
+                max-width: 90%;
+            }
+            
+            .decoration-icon {
+                font-size: 1.5em;
+            }
+
+            .romantic-message {
+                font-size: 1.1em;
+                padding: 25px 30px;
+                max-width: 90%;
+            }
+
+            .message-line::before {
+                left: -20px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .main-title {
+                font-size: 2em;
+            }
+            
+            .greeting-lead {
+                font-size: 1em;
+                padding: 10px 15px;
+            }
+            
+            .greeting-header {
+                padding: 15px;
+                margin-bottom: 20px;
+            }
+            
+            .decoration-elements {
+                gap: 15px;
+            }
+            
+            .decoration-icon {
+                font-size: 1.3em;
+            }
+
+            .romantic-message {
+                font-size: 1em;
+                padding: 20px 25px;
+                max-width: 95%;
+            }
+
+            .message-line::before {
+                left: -15px;
+                font-size: 0.7em;
+            }
+
+            .heart-decoration {
+                margin: 0 5px;
+                font-size: 1em;
+            }
+
+            .floral-border {
+                gap: 10px;
+            }
+
+            .floral-icon {
+                font-size: 1em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="greeting-main-bg parallax" data-speed="0.3" aria-hidden="true"></div>
+    
+    <div class="greeting-container" role="main">
+        <div class="balloon-canvas-wrapper" aria-hidden="true">
+            <canvas class="confetti" id="balloonCanvas"></canvas>
+        </div>
+        
+        <div class="greeting-header">
+            <h1 id="surprise-title" class="main-title">Happy Birthday Zona Aulia Nafaza! 🎉</h1>
+
+        </div>
+        
+        <div class="spotlight" aria-hidden="true"></div>
+  
+        <!-- Video Spesial -->
+        <div class="video-container" id="videoContainer" role="region" aria-label="Video spesial ulang tahun">
+            <div class="video-wrapper">
+                <div id="videoLoading" class="video-loading">
+                    <div class="loading-spinner"></div>
+                    <p>Memuat video</p>
+                </div>
+                <!-- Thumbnail hanya berupa tombol play (tanpa foto). Video akan menampilkan latar gelap sampai diputar. -->
+                <video id="birthdayVideo" class="birthday-video" controls preload="metadata">
+                    <source src="../assets/zonavideo.mp4" type="video/mp4">
+                    Browser Anda tidak mendukung pemutaran video.
+                </video>
+
+                <!-- Overlay poster dengan tombol play (ditampilkan di atas poster sebelum pemutaran) -->
+                <div class="video-poster-overlay" id="videoPoster" aria-hidden="false">
+                    <button class="play-poster" id="playPosterBtn" aria-label="Mainkan video">►</button>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Gallery Foto -->
+        <div class="photo-gallery" id="photoGallery" role="region" aria-label="Gallery foto kenangan" style="display: none;">
+            <div class="gallery-indicator">
+                <span class="gallery-dot active"></span>
+                <span class="gallery-dot"></span>
+                <span class="gallery-dot"></span>
+            </div>
+            
+            <div class="gallery-item">
+                <div class="photo-frame">
+                    <img data-src="../assets/zona1.jpg" alt="Zona Aulia" class="birthday-photo gallery-photo">
+                </div>
+            </div>
+            <div class="gallery-item">
+                <div class="photo-frame">
+                    <img data-src="../assets/zona_aulia.jpg" alt="Zona Aulia" class="birthday-photo gallery-photo">
+                </div>
+            </div>
+            <div class="gallery-item">
+                <div class="photo-frame">
+                    <img data-src="../assets/zona3.jpg" alt="Zona Aulia" class="birthday-photo gallery-photo">
+                </div>
+            </div>
+        </div>
+
+        <!-- Romantic Message yang Diperbarui -->
+        <div class="romantic-message-container">
+            <div class="floral-border">
+                <span class="floral-icon">🌷</span>
+                <span class="floral-icon">🌸</span>
+                <span class="floral-icon">🌹</span>
+                <span class="floral-icon">💮</span>
+                <span class="floral-icon">🏵️</span>
+            </div>
+            
+            <div class="romantic-message">
+                <span class="message-line">haii apakabar kamu disanaa dekk</span>
+                <span class="message-line">aku tau ko kita udah asing seperti inii </span>
+                <span class="message-line">tapi bukan berarti aku tidak mengucapkan selamat kepada mu </span>
+                <span class="message-line">HAPPY BIRTHDAY </span> 
+                <span class="message-line">maaf yaa aku gabisa ungkappin ini secara langsung </span>
+                <span class="message-line">aku tau hubungan kita uda selesai tapi aku boleh ngucapin kamu kan?</span> 
+                <span class="message-line">then once again.</span>
+                <span class="message-line">bahagia terus ya.</span> 
+                <span class="message-line">semoga segala impian kamu terwujud. </span>
+                <span class="message-line">kmu keren banget uda bisa sampe ke titik sejauh ini. </span>
+                <span class="message-line">aku bangga sama kamu. </span>
+                
+                <div class="message-quote">
+                    "someday will definitely be happy" 
+                </div>
+            </div>
+            
+            <div class="floral-border">
+                <span class="floral-icon">🏵️</span>
+                <span class="floral-icon">💮</span>
+                <span class="floral-icon">🌹</span>
+                <span class="floral-icon">🌸</span>
+                <span class="floral-icon">🌷</span>
+            </div>
+        </div>
+        
+        <div class="greeting-footer">
+            <button class="gallery-btn magic-btn" id="galleryBtn" aria-label="Lihat gallery foto">
+                Lihat Gallery Foto
+            </button>
+            <button class="special-message-btn magic-btn" onclick="window.location.href='SpecialMessage.html'">
+                Baca Pesan Spesial
+            </button>
+            <button class="surprise-btn magic-btn" id="celebrationBtn">
+                Celebration Time!
+            </button>
+        </div>
+    </div>
+
+    <script>
+    // CELEBRATION FUNCTION - PASTI BEKERJA
+    function startCelebration() {
+        console.log('🎉 Celebration started!');
+        
+        // Create particles
+        const particles = ['🎉', '✨', '🌟', '💫', '🎊', '💖', '🎀', '🥳', '🎂', '🎁'];
+        const colors = ['#ff6b6b', '#81c784', '#ffd54f', '#4fc3f7', '#ba68c8', '#4db6ac'];
+        
+        // Create 30 particles
+        for (let i = 0; i < 30; i++) {
+            setTimeout(() => {
+                const particle = document.createElement('div');
+                particle.className = 'celebration-particle';
+                particle.textContent = particles[Math.floor(Math.random() * particles.length)];
+                particle.style.left = Math.random() * 100 + 'vw';
+                particle.style.fontSize = (Math.random() * 25 + 20) + 'px';
+                particle.style.color = colors[Math.floor(Math.random() * colors.length)];
+                particle.style.animationDuration = (Math.random() * 2 + 2) + 's';
+                
+                document.body.appendChild(particle);
+                
+                // Remove particle after animation
+                setTimeout(() => {
+                    if (particle.parentNode) {
+                        particle.parentNode.removeChild(particle);
+                    }
+                }, 3000);
+            }, i * 80);
+        }
+        
+        // Add heartbeat effect to main container
+        const mainContainer = document.querySelector('.greeting-container');
+        if (mainContainer) {
+            mainContainer.style.animation = 'heartbeat 0.5s ease-in-out 3';
+            setTimeout(() => {
+                mainContainer.style.animation = '';
+            }, 1500);
+        }
+        
+        // Add shake effect to title
+        const title = document.querySelector('.main-title');
+        if (title) {
+            title.style.animation = 'shake 0.5s ease-in-out 3';
+            setTimeout(() => {
+                title.style.animation = '';
+            }, 1500);
+        }
+        
+        // Play celebration sound (optional)
+        try {
+            const audio = new Audio();
+            // You can add a celebration sound file here if you have one
+            // audio.src = '../assets/celebration-sound.mp3';
+            // audio.volume = 0.3;
+            // audio.play().catch(e => console.log('Sound play prevented'));
+        } catch (e) {
+            console.log('Celebration sound not available');
+        }
+        
+        // Add confetti effect to canvas if exists
+        const canvas = document.getElementById('balloonCanvas');
+        if (canvas) {
+            const ctx = canvas.getContext('2d');
+            createConfettiBurst(ctx, canvas);
+        }
+    }
+    
+    // Confetti burst effect
+    function createConfettiBurst(ctx, canvas) {
+        const confettiPieces = [];
+        const colors = ['#81C784', '#ffd54f', '#e0f7fa', '#ffb300', '#fffbe7', '#E1BEE7'];
+        
+        // Create confetti pieces
+        for (let i = 0; i < 50; i++) {
+            confettiPieces.push({
+                x: canvas.width / 2,
+                y: canvas.height / 2,
+                size: Math.random() * 10 + 5,
+                color: colors[Math.floor(Math.random() * colors.length)],
+                speedX: (Math.random() - 0.5) * 15,
+                speedY: (Math.random() - 0.5) * 15,
+                rotation: Math.random() * 360,
+                rotationSpeed: Math.random() * 10 - 5
+            });
+        }
+        
+        let animationFrame;
+        let startTime = Date.now();
+        
+        function animateConfetti() {
+            const currentTime = Date.now();
+            const elapsed = currentTime - startTime;
+            
+            if (elapsed > 2000) { // Stop after 2 seconds
+                cancelAnimationFrame(animationFrame);
+                return;
+            }
+            
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            
+            confettiPieces.forEach(piece => {
+                piece.x += piece.speedX;
+                piece.y += piece.speedY;
+                piece.speedY += 0.1; // gravity
+                piece.rotation += piece.rotationSpeed;
+                
+                ctx.save();
+                ctx.translate(piece.x, piece.y);
+                ctx.rotate(piece.rotation * Math.PI / 180);
+                ctx.fillStyle = piece.color;
+                ctx.fillRect(-piece.size/2, -piece.size/2, piece.size, piece.size);
+                ctx.restore();
+            });
+            
+            animationFrame = requestAnimationFrame(animateConfetti);
+        }
+        
+        animateConfetti();
+    }
+    
+    // Add shake animation to CSS
+    const shakeStyle = document.createElement('style');
+    shakeStyle.textContent = `
+        @keyframes shake {
+            0%, 100% { transform: translateX(0); }
+            25% { transform: translateX(-10px); }
+            75% { transform: translateX(10px); }
+        }
+    `;
+    document.head.appendChild(shakeStyle);
+    </script>
+
+    <script src="../scripts/greeting.js"></script>
+    <script src="../scripts/greeting-extra.js"></script>
+    <script src="../scripts/enhanced-effects.js"></script>
+    <script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const galleryBtn = document.getElementById('galleryBtn');
+        const videoContainer = document.getElementById('videoContainer');
+        const photoGallery = document.getElementById('photoGallery');
+        const videoElement = document.getElementById('birthdayVideo');
+        const videoLoading = document.getElementById('videoLoading');
+        const celebrationBtn = document.getElementById('celebrationBtn');
+        let isGalleryOpen = false;
+
+        // Celebration Button - PASTI BEKERJA
+        celebrationBtn.addEventListener('click', function() {
+            console.log('🎉 Celebration button clicked!');
+            startCelebration();
+            
+            // Button feedback
+            this.style.transform = 'scale(0.95)';
+            setTimeout(() => {
+                this.style.transform = 'scale(1)';
+            }, 150);
+        });
+
+        // Loading Screen & Error Handling untuk Video
+        videoElement.addEventListener('loadeddata', function() {
+            videoLoading.style.display = 'none';
+        });
+
+        videoElement.addEventListener('canplay', function() {
+            videoLoading.style.display = 'none';
+        });
+
+        videoElement.addEventListener('error', function() {
+            videoLoading.style.display = 'none';
+            const errorMsg = document.createElement('div');
+            errorMsg.className = 'error-message';
+            errorMsg.textContent = 'Gagal memuat video. Pastikan file zonavideo.mp4 ada di folder assets.';
+            videoContainer.appendChild(errorMsg);
+        });
+
+        // Auto-advance ke Gallery setelah Video Selesai
+        videoElement.addEventListener('ended', function() {
+            if (!isGalleryOpen) {
+                toggleGallery();
+            }
+        });
+
+        // Poster overlay / play-poster handling
+        const videoPoster = document.getElementById('videoPoster');
+        const playPosterBtn = document.getElementById('playPosterBtn');
+
+        function hidePosterOverlay() {
+            if (videoPoster) videoPoster.classList.add('hidden');
+            if (videoLoading) videoLoading.style.display = 'none';
+        }
+
+        function showPosterOverlay() {
+            if (videoPoster) videoPoster.classList.remove('hidden');
+        }
+
+        // If autoplay works, hide overlay; otherwise keep overlay for user to click
+        videoElement.play().then(() => {
+            // autoplay succeeded
+            hidePosterOverlay();
+        }).catch((err) => {
+            // autoplay prevented — show overlay so user can start playback
+            console.log('Autoplay prevented or failed, waiting for user interaction:', err);
+            showPosterOverlay();
+        });
+
+        if (playPosterBtn) {
+            playPosterBtn.addEventListener('click', function(e) {
+                e.preventDefault();
+                if (videoElement) {
+                    videoElement.play().then(() => {
+                        hidePosterOverlay();
+                    }).catch(err => {
+                        console.log('Play failed:', err);
+                        // even if play failed, hide overlay to reveal native controls
+                        hidePosterOverlay();
+                    });
+                }
+            });
+        }
+
+        // Progress Indicator untuk Gallery
+        function updateGalleryIndicator() {
+            const dots = document.querySelectorAll('.gallery-dot');
+            dots.forEach((dot, index) => {
+                if (index === 0) {
+                    dot.classList.add('active');
+                } else {
+                    dot.classList.remove('active');
+                }
+            });
+        }
+
+        // Toggle antara Video dan Gallery
+        function toggleGallery() {
+            if (!isGalleryOpen) {
+                videoContainer.style.display = "none";
+                photoGallery.style.display = "block";
+                galleryBtn.textContent = "Kembali ke Video";
+                isGalleryOpen = true;
+                
+                if (videoElement && !videoElement.paused) {
+                    videoElement.pause();
+                }
+                
+                setTimeout(() => {
+                    photoGallery.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                }, 300);
+                
+                updateGalleryIndicator();
+                
+                setTimeout(() => {
+                    const galleryItems = document.querySelectorAll('.gallery-item');
+                    galleryItems.forEach((item, index) => {
+                        setTimeout(() => {
+                            item.style.animation = 'slideInUp 0.6s ease-out both';
+                        }, index * 200);
+                    });
+                }, 100);
+            } else {
+                videoContainer.style.display = "block";
+                photoGallery.style.display = "none";
+                galleryBtn.textContent = "Lihat Gallery Foto";
+                isGalleryOpen = false;
+                
+                setTimeout(() => {
+                    videoContainer.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                }, 300);
+                
+                if (videoElement) {
+                    videoElement.currentTime = 0;
+                    videoElement.play().catch(e => {
+                        console.log('Auto-play prevented:', e);
+                    });
+                }
+            }
+        }
+
+        galleryBtn.addEventListener('click', toggleGallery);
+
+        // Lazy Loading untuk Gambar Gallery
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const img = entry.target;
+                    img.src = img.dataset.src;
+                    img.onload = function() {
+                        img.classList.add('loaded');
+                    };
+                    observer.unobserve(img);
+                }
+            });
+        }, {
+            rootMargin: '50px 0px',
+            threshold: 0.1
+        });
+
+        document.querySelectorAll('.gallery-photo').forEach(img => {
+            observer.observe(img);
+        });
+
+        // Auto play video
+        videoElement.play().catch(e => {
+            console.log('Auto-play prevented:', e);
+        });
+
+        // Preload images
+        function preloadImages() {
+            const imageUrls = [
+                '../assets/zona1.jpg',
+                '../assets/zona_aulia.jpg', 
+                '../assets/zona3.jpg'
+            ];
+            
+            imageUrls.forEach(url => {
+                const img = new Image();
+                img.src = url;
+            });
+        }
+
+        preloadImages();
+
+        // Keyboard Navigation
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape' && isGalleryOpen) {
+                toggleGallery();
+            }
+            if (e.key === ' ' || e.key === 'Spacebar') {
+                e.preventDefault();
+                if (videoElement && videoContainer.style.display !== 'none') {
+                    if (videoElement.paused) {
+                        videoElement.play();
+                    } else {
+                        videoElement.pause();
+                    }
+                }
+            }
+        });
+
+        // Auto celebration saat page load
+        setTimeout(() => {
+            console.log('🎉 Auto celebration on page load');
+            startCelebration();
+        }, 1000);
+    });
+    </script>
+</body>
+</html>

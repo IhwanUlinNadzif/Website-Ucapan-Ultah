@@ -1,0 +1,685 @@
+.balloon-canvas-wrapper {
+    position: fixed; /* Ganti dari absolute ke fixed */
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: 1;
+    pointer-events: none;
+}
+
+.greeting-container {
+    position: relative;
+    z-index: 2; /* Pastikan konten di atas canvas */
+}
+.greeting-header {
+    text-align: center;
+    margin-bottom: 30px;
+    padding: 20px;
+    background: linear-gradient(135deg, rgba(255,255,255,0.95) 0%, rgba(255,251,231,0.95) 100%);
+    border-radius: 20px;
+    box-shadow: 0 8px 32px rgba(76,175,80,0.15);
+    border: 2px solid transparent;
+    background-clip: padding-box;
+    position: relative;
+    overflow: hidden;
+}
+
+.greeting-header::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    border-radius: 20px;
+    padding: 3px;
+    background: linear-gradient(45deg, #ffd54f, #81c784, #4CAF50, #E1BEE7);
+    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    pointer-events: none;
+}
+
+.main-title {
+    font-size: 3.5em;
+    font-weight: 800;
+    background: linear-gradient(45deg, #4CAF50, #81C784, #FFD54F, #E1BEE7);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin-bottom: 15px;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+    letter-spacing: 1px;
+    line-height: 1.2;
+}
+
+.greeting-lead {
+    font-size: 1.4em;
+    color: #2E7D32;
+    font-weight: 600;
+    margin-bottom: 0;
+    padding: 15px 25px;
+    background: rgba(255,255,255,0.9);
+    border-radius: 15px;
+    display: inline-block;
+    box-shadow: 0 4px 15px rgba(76,175,80,0.1);
+    border-left: 4px solid #4CAF50;
+    border-right: 4px solid #81C784;
+    line-height: 1.5;
+    max-width: 80%;
+    margin: 0 auto;
+}
+
+.decoration-elements {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-top: 20px;
+    flex-wrap: wrap;
+}
+
+.decoration-icon {
+    font-size: 2em;
+    opacity: 0.8;
+    transition: transform 0.3s ease;
+}
+
+.decoration-icon:hover {
+    transform: scale(1.2);
+    opacity: 1;
+}
+
+/* Responsive Design untuk teks baru */
+@media (max-width: 768px) {
+    .main-title {
+        font-size: 2.5em;
+    }
+    
+    .greeting-lead {
+        font-size: 1.1em;
+        padding: 12px 20px;
+        max-width: 90%;
+    }
+    
+    .decoration-icon {
+        font-size: 1.5em;
+    }
+    
+    .greeting-header {
+        padding: 15px;
+        margin-bottom: 20px;
+    }
+}
+
+@media (max-width: 480px) {
+    .main-title {
+        font-size: 2em;
+    }
+    
+    .greeting-lead {
+        font-size: 1em;
+        padding: 10px 15px;
+    }
+    
+    .greeting-header {
+        padding: 15px;
+        margin-bottom: 20px;
+    }
+    
+    .decoration-elements {
+        gap: 15px;
+    }
+    
+    .decoration-icon {
+        font-size: 1.3em;
+    }
+}
+
+.video-container, .photo-gallery {
+    position: relative;
+    z-index: 3;
+}
+
+/* Tambahkan style untuk floating elements */
+.floating-heart {
+    position: fixed !important;
+    top: 100vh;
+    font-size: 24px;
+    animation: float 6s ease-in-out forwards;
+    z-index: 999;
+    pointer-events: none;
+}
+
+.particle {
+    position: fixed !important;
+    top: 100vh;
+    pointer-events: none;
+    animation: particle-float 6s ease-in forwards;
+    z-index: 999;
+}
+
+/* Perbaiki animasi float */
+@keyframes float {
+    0% {
+        transform: translateY(0) rotate(0deg);
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(-120vh) rotate(360deg);
+        opacity: 0;
+    }
+}
+
+@keyframes particle-float {
+    0% {
+        transform: translateY(0) rotate(0deg);
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(-120vh) rotate(360deg);
+        opacity: 0;
+    }
+}
+
+/* Loading Screen */
+.video-loading {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 251, 231, 0.95);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    z-index: 10;
+    border-radius: 12px;
+}
+
+.loading-spinner {
+    width: 40px;
+    height: 40px;
+    border: 3px solid #81C784;
+    border-top: 3px solid transparent;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+    margin-bottom: 15px;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+.video-loading p {
+    color: #388E3C;
+    font-weight: 500;
+    margin: 0;
+    font-size: 0.95em;
+}
+
+/* Error Message */
+.error-message {
+    background: #ffebee;
+    color: #c62828;
+    padding: 12px;
+    border-radius: 8px;
+    margin: 10px 0;
+    text-align: center;
+    border-left: 4px solid #c62828;
+    position: absolute;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 11;
+    width: 90%;
+    font-size: 0.9em;
+}
+
+/* Video Container */
+.video-container {
+    margin: 20px 0;
+    text-align: center;
+    animation: fadeInVideo 1s ease-out;
+}
+
+.video-wrapper {
+    background: linear-gradient(135deg, #fffbe7 0%, #e0f7fa 100%);
+    padding: 20px;
+    border-radius: 16px;
+    box-shadow: 0 6px 24px rgba(76,175,80,0.15);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+/* Poster overlay styling: centered big play button shown over poster image */
+.video-poster-overlay {
+    position: absolute;
+    inset: 0; /* fill the video-wrapper */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    pointer-events: auto;
+    z-index: 5;
+}
+
+.video-poster-overlay::before {
+    /* subtle dark layer so the play button is visible on any poster */
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: rgba(0,0,0,0.25);
+    border-radius: 12px;
+}
+
+.play-poster {
+    position: relative;
+    z-index: 6;
+    width: 88px;
+    height: 88px;
+    border-radius: 50%;
+    border: none;
+    background: rgba(255,255,255,0.9);
+    color: #222;
+    font-size: 40px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    box-shadow: 0 6px 20px rgba(0,0,0,0.25);
+}
+
+.play-poster:active { transform: scale(0.98); }
+
+/* Hide overlay when video is playing by adding .hidden */
+.video-poster-overlay.hidden { display: none; }
+
+.birthday-video {
+    /* Portrait-oriented video: preserve full frame and avoid cropping */
+    width: auto;
+    max-width: 420px; /* sensible max width for portrait phone/video */
+    height: min(80vh, 760px); /* allow tall video but cap to viewport */
+    aspect-ratio: 9 / 16; /* portrait aspect (width / height) */
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+    background: #000;
+    object-fit: contain; /* show entire video, add letterbox if needed */
+}
+
+/* Photo Gallery */
+.photo-gallery {
+    margin: 20px 0;
+}
+
+.gallery-indicator {
+    text-align: center;
+    margin: 15px 0 25px 0;
+}
+
+.gallery-dot {
+    display: inline-block;
+    width: 10px;
+    height: 10px;
+    background: #81C784;
+    border-radius: 50%;
+    margin: 0 6px;
+    opacity: 0.5;
+    transition: opacity 0.3s, transform 0.3s;
+    cursor: pointer;
+}
+
+.gallery-dot.active {
+    opacity: 1;
+    transform: scale(1.3);
+}
+
+.gallery-dot:hover {
+    opacity: 0.8;
+    transform: scale(1.2);
+}
+
+.gallery-item {
+    margin-bottom: 25px;
+    text-align: center;
+    display: none;
+}
+
+.gallery-photo {
+    max-width: 100%;
+    border-radius: 12px;
+    box-shadow: 0 4px 18px rgba(76,175,80,0.13);
+    transition: transform 0.3s ease, box-shadow 0.3s ease, filter 0.3s ease;
+    opacity: 0;
+    animation: fadeIn 0.5s ease-out forwards;
+}
+
+.gallery-photo.loaded {
+    opacity: 1;
+}
+
+.gallery-photo:hover {
+    transform: scale(1.02);
+    box-shadow: 0 6px 24px rgba(76,175,80,0.18);
+}
+
+/* Gallery Button */
+.gallery-btn {
+    background: linear-gradient(90deg, #9C27B0 60%, #E1BEE7 100%);
+    color: white;
+    padding: 14px 28px;
+    border: none;
+    border-radius: 25px;
+    font-weight: 600;
+    font-size: 1em;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    margin: 8px 0;
+    box-shadow: 0 2px 8px rgba(156,39,176,0.15);
+    display: block;
+    width: 100%;
+    letter-spacing: 0.5px;
+}
+
+.gallery-btn:hover {
+    background: linear-gradient(90deg, #7B1FA2 60%, #CE93D8 100%);
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(156,39,176,0.25);
+}
+
+/* Surprise Button */
+.surprise-btn {
+    background: linear-gradient(90deg, #FF9800 60%, #FFD54F 100%);
+    color: white;
+    padding: 14px 28px;
+    border: none;
+    border-radius: 25px;
+    font-weight: 600;
+    font-size: 1em;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    margin: 8px 0;
+    box-shadow: 0 2px 8px rgba(255,152,0,0.15);
+    display: block;
+    width: 100%;
+    letter-spacing: 0.5px;
+}
+
+.surprise-btn:hover {
+    background: linear-gradient(90deg, #F57C00 60%, #FFB74D 100%);
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(255,152,0,0.25);
+}
+
+/* Animations */
+@keyframes fadeInVideo {
+    from { 
+        opacity: 0; 
+        transform: translateY(20px);
+    }
+    to { 
+        opacity: 1; 
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeInGallery {
+    from { 
+        opacity: 0; 
+    }
+    to { 
+        opacity: 1; 
+    }
+}
+
+@keyframes fadeIn {
+    from { 
+        opacity: 0; 
+    }
+    to { 
+        opacity: 1; 
+    }
+}
+
+.photo-gallery {
+    animation: fadeInGallery 0.8s ease-out;
+}
+
+.gallery-item {
+    animation: slideInUp 0.6s ease-out both;
+}
+
+@keyframes slideInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Enhanced photo styles dengan frame */
+.photo-frame {
+    display: inline-block;
+    padding: 15px;
+    background: linear-gradient(45deg, #ffd54f, #81c784, #e0f7fa);
+    border-radius: 15px;
+    animation: glow 2s ease-in-out infinite;
+    margin: 10px;
+    position: relative;
+}
+
+.photo-frame::before {
+    content: '';
+    position: absolute;
+    top: -5px;
+    left: -5px;
+    right: -5px;
+    bottom: -5px;
+    background: linear-gradient(45deg, #ffd54f, #81c784, #e0f7fa, #ffd54f);
+    border-radius: 20px;
+    z-index: -1;
+    animation: rotate 3s linear infinite;
+}
+
+/* Zoom effect untuk foto */
+.gallery-photo.zoomed {
+    transform: scale(2);
+    z-index: 1000;
+    position: relative;
+    cursor: zoom-out;
+    transition: transform 0.3s ease;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.3);
+}
+
+/* Memory Timeline */
+.memory-timeline {
+    margin: 40px 0;
+    padding: 20px;
+    background: rgba(255,255,255,0.8);
+    border-radius: 15px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+}
+
+.timeline {
+    position: relative;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.timeline::before {
+    content: '';
+    position: absolute;
+    left: 50%;
+    top: 0;
+    bottom: 0;
+    width: 2px;
+    background: #81C784;
+    transform: translateX(-50%);
+}
+
+.timeline-item {
+    position: relative;
+    margin: 30px 0;
+    width: 50%;
+    padding: 0 20px;
+}
+
+.timeline-item:nth-child(odd) {
+    left: 0;
+    text-align: right;
+}
+
+.timeline-item:nth-child(even) {
+    left: 50%;
+    text-align: left;
+}
+
+.timeline-content {
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    position: relative;
+}
+
+.timeline-date {
+    font-weight: bold;
+    color: #4CAF50;
+    margin-bottom: 8px;
+    font-size: 1.1em;
+}
+
+.timeline-content h3 {
+    color: #388E3C;
+    margin-bottom: 8px;
+}
+
+.timeline-content p {
+    color: #666;
+    line-height: 1.5;
+}
+
+/* Add markers to timeline */
+.timeline-item::before {
+    content: '';
+    position: absolute;
+    width: 12px;
+    height: 12px;
+    background: #4CAF50;
+    border-radius: 50%;
+    top: 20px;
+    right: -6px;
+    z-index: 2;
+}
+
+.timeline-item:nth-child(even)::before {
+    left: -6px;
+    right: auto;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .birthday-video {
+        max-width: 360px;
+        height: min(72vh, 640px);
+        aspect-ratio: 9 / 16;
+    }
+    
+    .photo-frame {
+        padding: 10px;
+        margin: 5px;
+    }
+    
+    .timeline::before {
+        left: 20px;
+    }
+    
+    .timeline-item {
+        width: 100%;
+        left: 0 !important;
+        text-align: left !important;
+        padding-left: 40px;
+    }
+    
+    .timeline-item::before {
+        left: 14px !important;
+        right: auto !important;
+    }
+}
+
+@media (max-width: 600px) {
+    .gallery-item {
+        margin-bottom: 20px;
+    }
+    
+    .video-wrapper {
+        padding: 15px;
+    }
+    
+    .birthday-video {
+        max-width: 320px;
+        height: min(80vh, 720px);
+        aspect-ratio: 9 / 16;
+    }
+    
+    .gallery-indicator {
+        margin: 10px 0 20px 0;
+    }
+    
+    .gallery-btn, .surprise-btn {
+        padding: 12px 24px;
+        font-size: 0.95em;
+    }
+    
+    .gallery-photo.zoomed {
+        transform: scale(1.5);
+    }
+    
+    .memory-timeline {
+        padding: 15px;
+        margin: 30px 0;
+    }
+    
+    .timeline-content {
+        padding: 15px;
+    }
+}
+
+@media (max-width: 400px) {
+    .birthday-video {
+        max-width: 280px;
+        height: min(85vh, 680px);
+        aspect-ratio: 9 / 16;
+    }
+    
+    .video-wrapper {
+        padding: 12px;
+    }
+    
+    .loading-spinner {
+        width: 32px;
+        height: 32px;
+    }
+    
+    .photo-frame {
+        padding: 8px;
+        margin: 3px;
+    }
+    
+    .timeline-item {
+        padding-left: 30px;
+    }
+    
+    .timeline-item::before {
+        left: 9px !important;
+        width: 10px;
+        height: 10px;
+    }
+}

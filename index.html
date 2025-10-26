@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ucapan Ulang Tahun Spesial - Zona Aulia</title>
+    <meta name="description" content="Ucapan ulang tahun spesial untuk Zona Aulia Nafaza dengan kejutan video dan foto">
+    <meta name="keywords" content="ulang tahun, birthday, zona aulia, kejutan, video spesial">
+    <link rel="stylesheet" href="styles/main.css">
+    <style>
+        /* Override untuk nonaktifkan semua animasi */
+        * {
+            animation: none !important;
+            transition: none !important;
+        }
+        
+        .hero h1 {
+            font-size: 2.5em;
+            font-weight: 700;
+            color: #4CAF50;
+            margin-bottom: 8px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+        }
+        
+        .greeting-card {
+            max-width: 420px;
+            margin: 40px auto;
+            background: linear-gradient(135deg, #fffbe7 60%, #e0f7fa 100%);
+            border-radius: 14px;
+            box-shadow: 0 4px 24px rgba(76,175,80,0.10);
+            padding: 32px 18px 28px 18px;
+            text-align: center;
+            border: 2px solid #81C784;
+        }
+        
+        .greeting-card h2 {
+            color: #4CAF50;
+            font-size: 1.8em;
+            margin-bottom: 15px;
+            font-weight: 600;
+        }
+        
+        .greeting-card p {
+            color: #388E3C;
+            font-size: 1.1em;
+            margin-bottom: 20px;
+            line-height: 1.5;
+        }
+        
+        .login-btn {
+            display: inline-block;
+            background: linear-gradient(90deg, #4CAF50 60%, #81C784 100%);
+            color: white;
+            padding: 12px 32px;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: bold;
+            margin: 16px 0;
+            box-shadow: 0 2px 8px rgba(76,175,80,0.15);
+            border: none;
+            cursor: pointer;
+            font-size: 1em;
+        }
+        
+        .card-ucapan {
+            background: white;
+            padding: 16px;
+            border-radius: 10px;
+            margin: 20px 0;
+            box-shadow: 0 2px 12px rgba(0,0,0,0.1);
+            font-style: italic;
+            color: #388E3C;
+            border-left: 4px solid #4CAF50;
+        }
+        
+        @media (max-width: 600px) {
+            .greeting-card {
+                width: 95%;
+                padding: 20px 15px;
+                margin: 20px auto;
+            }
+            
+            .hero h1 {
+                font-size: 2em;
+            }
+            
+            .greeting-card h2 {
+                font-size: 1.5em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <a href="#main-content" class="skip-link">Langsung ke konten utama</a>
+    
+    <header role="banner">
+        <div class="hero">
+            <h1>Selamat Datang Cantik</h1>
+            <p class="subtitle">Ada kejutan spesial menantimu!</p>
+        </div>
+    </header>
+    
+    <main id="main-content" role="main">
+        <section id="greeting" role="region" aria-labelledby="greeting-heading">
+            <div class="greeting-card">
+                <h2 id="greeting-heading">Ada yang spesial nii</h2>
+                <p>Klik Login dulu yaa cantikkk</p>
+                
+                <a href="components/LoginPage.html" class="login-btn" id="loginLink">
+                    <span class="btn-text">Login</span>
+                </a>
+                
+                <article class="card-ucapan" id="ucapanRandom" role="article"></article>
+            </div>
+        </section>
+    </main>
+
+    <footer role="contentinfo">
+        <p>Dibuat dengan ❤️ untuk Zona Aulia</p>
+    </footer>
+
+    <noscript>
+        <div class="noscript-warning">
+            <p>⚠️ Website ini membutuhkan JavaScript untuk pengalaman terbaik.</p>
+        </div>
+    </noscript>
+
+    <script src="scripts/index.js"></script>
+    <script>
+        // Override untuk nonaktifkan efek enhanced
+        document.addEventListener('DOMContentLoaded', function() {
+            console.log('Simple version loaded - no animations');
+            
+            // Tampilkan ucapan random
+            const ucapanList = [
+                "Selamat ulang tahun! Semoga semua harapanmu tercapai.",
+                "Hari spesial, semangat baru, semoga sukses selalu.",
+                "Semoga setiap langkahmu semakin dekat dengan impian.",
+                "Ulang tahun adalah awal petualangan baru, nikmati setiap momennya.",
+                "Semoga hari-harimu selalu cerah dan penuh inspirasi."
+            ];
+            
+            const ucapanElement = document.getElementById('ucapanRandom');
+            if (ucapanElement) {
+                ucapanElement.textContent = ucapanList[Math.floor(Math.random() * ucapanList.length)];
+            }
+            
+            // Handle URL parameters
+            const params = new URLSearchParams(window.location.search);
+            const notif = params.get('notif');
+            const notificationElement = document.getElementById('notification');
+            
+            if (notif && notificationElement) {
+                notificationElement.textContent = decodeURIComponent(notif);
+                notificationElement.style.color = '#4CAF50';
+                notificationElement.style.padding = '10px';
+                notificationElement.style.backgroundColor = '#e8f5e9';
+                notificationElement.style.borderRadius = '5px';
+                notificationElement.style.marginTop = '10px';
+                
+                setTimeout(() => {
+                    notificationElement.style.display = 'none';
+                }, 5000);
+            }
+        });
+    </script>
+</body>
+</html>

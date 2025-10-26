@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - Ucapan Spesial Zona Aulia Nafaza</title>
+    <link rel="stylesheet" href="../styles/main.css">
+    <style>
+        /* Nonaktifkan semua animasi */
+        * {
+            animation: none !important;
+            transition: none !important;
+        }
+        
+        .login-container {
+            max-width: 400px;
+            margin: 40px auto;
+            background: #fff;
+            border-radius: 16px;
+            box-shadow: 0 8px 32px rgba(76,175,80,0.15);
+            padding: 32px;
+            position: relative;
+            overflow: hidden;
+            border: 2px solid #81C784;
+        }
+        
+        .login-container::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, #4CAF50, #81C784, #FFD54F);
+        }
+        
+        .login-header {
+            text-align: center;
+            margin-bottom: 24px;
+        }
+        
+        .login-header h1 {
+            color: #4CAF50;
+            font-size: 2em;
+            margin-bottom: 8px;
+            letter-spacing: 1px;
+        }
+        
+        .login-instruction {
+            color: #666;
+            margin-bottom: 24px;
+            text-align: center;
+            line-height: 1.5;
+            font-size: 1em;
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        .form-label {
+            display: block;
+            margin-bottom: 6px;
+            color: #388E3C;
+            font-weight: 600;
+        }
+        
+        .form-input {
+            width: 100%;
+            padding: 12px;
+            border: 2px solid #E0E0E0;
+            border-radius: 8px;
+            font-size: 1em;
+        }
+        
+        .form-input:focus {
+            outline: none;
+            border-color: #4CAF50;
+        }
+        
+        .form-input.valid {
+            border-color: #4CAF50;
+        }
+        
+        .form-input.invalid {
+            border-color: #f44336;
+        }
+        
+        .form-help {
+            font-size: 0.85em;
+            color: #666;
+            margin-top: 4px;
+        }
+        
+        .submit-btn {
+            width: 100%;
+            background: linear-gradient(90deg, #4CAF50 60%, #81C784 100%);
+            color: #fff;
+            padding: 14px;
+            border: none;
+            border-radius: 25px;
+            font-weight: bold;
+            font-size: 1.1em;
+            box-shadow: 0 4px 15px rgba(76,175,80,0.3);
+            cursor: pointer;
+            margin-top: 10px;
+        }
+        
+        .submit-btn:hover {
+            background: linear-gradient(90deg, #388E3C 60%, #4CAF50 100%);
+        }
+        
+        .submit-btn.loading {
+            opacity: 0.8;
+        }
+        
+        .login-error {
+            color: #d32f2f;
+            margin-top: 16px;
+            font-weight: 600;
+            text-align: center;
+            padding: 12px;
+            background: #ffebee;
+            border-radius: 8px;
+            border-left: 4px solid #d32f2f;
+            display: none;
+        }
+        
+        .back-link {
+            text-align: center;
+            margin-top: 20px;
+        }
+        
+        .back-link a {
+            color: #4CAF50;
+            text-decoration: none;
+            font-size: 0.9em;
+        }
+        
+        .back-link a:hover {
+            text-decoration: underline;
+        }
+        
+        .celebration {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(255,255,255,0.95);
+            display: none;
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+            flex-direction: column;
+        }
+        
+        .celebration h2 {
+            color: #4CAF50;
+            font-size: 2.5em;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="login-container">
+        <div class="login-header">
+            <h1>Login dulu yaa</h1>
+        </div>
+        
+        <p class="login-instruction">Silahkan di Isi Dengan Nama dan Tanggal Lahirmu Dahulu Yaa Maniskuu</p>
+        
+        <form id="login-form" novalidate>
+            <div class="form-group">
+                <label for="username" class="form-label">Username</label>
+                <input type="text" id="username" name="username" class="form-input" 
+                       required autocomplete="name"
+                       placeholder="Masukkan nama lengkap">
+                <div class="form-help">Pakai nama lengkap kmu yaa</div>
+            </div>
+            
+            <div class="form-group">
+                <label for="password" class="form-label">Password</label>
+                <input type="password" id="password" name="password" class="form-input" 
+                       required autocomplete="off"
+                       placeholder="Format: DDMMYYYY">
+                <div class="form-help">Isi tanggal ulang tahun kmu yaa</div>
+            </div>
+            
+            <button type="submit" class="submit-btn">
+                <span class="btn-text">Login</span>
+            </button>
+            
+            <div id="login-error" class="login-error"></div>
+        </form>
+        
+        <div class="back-link">
+            <a href="../index.html">← Kembali ke Halaman Utama</a>
+        </div>
+    </div>
+
+    <!-- Celebration screen -->
+    <div class="celebration" id="celebration">
+        <h2>Login Berhasil!</h2>
+        <div style="font-size: 4em; margin: 20px 0;">💖</div>
+        <p style="font-size: 1.2em;">1, 2, 3,......</p>
+    </div>
+
+    <script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const loginForm = document.getElementById('login-form');
+        const usernameInput = document.getElementById('username');
+        const passwordInput = document.getElementById('password');
+        const errorDiv = document.getElementById('login-error');
+        const submitBtn = loginForm.querySelector('.submit-btn');
+        const btnText = submitBtn.querySelector('.btn-text');
+        const celebration = document.getElementById('celebration');
+        
+        function showEnhancedCelebration() {
+            celebration.style.display = 'flex';
+        }
+
+        // Real-time validation
+        usernameInput.addEventListener('input', function() {
+            validateField(this);
+        });
+        
+        passwordInput.addEventListener('input', function() {
+            validateField(this);
+        });
+        
+        function validateField(field) {
+            if (field.value.trim() === '') {
+                field.classList.remove('valid', 'invalid');
+            } else if (field.checkValidity()) {
+                field.classList.add('valid');
+                field.classList.remove('invalid');
+            } else {
+                field.classList.add('invalid');
+                field.classList.remove('valid');
+            }
+        }
+        
+        loginForm.onsubmit = function(e) {
+            e.preventDefault();
+            
+            const username = usernameInput.value.trim();
+            const password = passwordInput.value.trim();
+            
+            errorDiv.style.display = 'none';
+            errorDiv.textContent = '';
+            
+            if (!username || !password) {
+                showError('Harap isi semua field!');
+                return;
+            }
+            
+            submitBtn.disabled = true;
+            btnText.textContent = 'Loading...';
+            
+            setTimeout(function() {
+                if(username === "Zona Aulia Nafaza" && password === "27102003") {
+                    showEnhancedCelebration();
+                    
+                    setTimeout(function() {
+                        window.location.href = "GreetingPage.html";
+                    }, 3000);
+                } else {
+                    showError('Username atau password salah!');
+                    usernameInput.classList.add('invalid');
+                    passwordInput.classList.add('invalid');
+                }
+                
+                resetButton();
+            }, 1500);
+        };
+        
+        function showError(message) {
+            errorDiv.textContent = message;
+            errorDiv.style.display = 'block';
+            resetButton();
+        }
+        
+        function resetButton() {
+            btnText.textContent = 'Login';
+            submitBtn.disabled = false;
+        }
+        
+        loginForm.addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') {
+                loginForm.dispatchEvent(new Event('submit'));
+            }
+        });
+    });
+    </script>
+</body>
+</html>
